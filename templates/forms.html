@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_forms.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/score.css') }}">
+
 </head>
 
 <body>
@@ -17,9 +19,9 @@
             <a href="/" class="logo">A1 Bank</a>
             <div class="nav-links">
                 <a href="/">Home</a>
-                <a href="/about">About us</a>
-                <a href="/guide">Policy Guide</a>
-                <a href="{{ url_for('model_score') }}">Plans</a>
+                <a href="/">About us</a>
+                <a href="/">Policy Guide</a>
+                <a href="/">Plans</a>
                 <button class="btn btn-ghost">Sign up</button>
                 <button class="btn btn-secondary">Login</button>
             </div>
@@ -92,19 +94,29 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
 
-                        <div class="input-group">
-                            <label for="charges">Charges</label>
-                            <input type="number" id="charges" class="input-field" step="0.01" required>
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
                     </div>
 
                     <div class="submit-container">
-                        <a href="{{ url_for('model_score') }}"><button type="submit" class="submit-btn">
-                                Submit Data <i class="fas fa-arrow-right"></i>
-                            </button></a>
+                        <button type="submit" class="submit-btn">
+                            Submit Data <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                 </form>
+
+                <!-- Results Section -->
+                <div id="resultsSection">
+                    <h2 class="results-title">Submitted Data</h2>
+                    <div id="resultsContent"></div>
+
+                    <!-- Model Prediction Score -->
+                    <div class="score-box">
+                        <div class="score-title">Model Prediction Score</div>
+                        <div class="score-value" id="predictionScore">—</div>
+                    </div>
+
+                    <button class="new-entry-btn" onclick="newEntry()">New Entry</button>
+                </div>
+
             </div>
             <div class="hero-image">
                 <div class="gradient-bg"></div>
@@ -114,43 +126,7 @@
         </div>
     </section>
 
-    <script>
-        document.getElementById('insuranceForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Collect form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-
-            // Create success animation
-            const button = document.querySelector('.submit-btn');
-            button.innerHTML = '<i class="fas fa-check"></i> Submitted Successfully';
-            button.style.background = 'linear-gradient(45deg, #00b09b, #96c93d)';
-
-            // Log the data
-            console.log('Form Data:', data);
-
-            // Reset form after delay
-            setTimeout(() => {
-                this.reset();
-                button.innerHTML = 'Submit Data <i class="fas fa-arrow-right"></i>';
-                button.style.background = 'linear-gradient(45deg, #ff4d4d, #f9cb28)';
-            }, 2000);
-        });
-
-        // Add floating labels animation
-        document.querySelectorAll('.input-field').forEach(input => {
-            input.addEventListener('focus', function () {
-                this.parentElement.classList.add('focused');
-            });
-
-            input.addEventListener('blur', function () {
-                if (!this.value) {
-                    this.parentElement.classList.remove('focused');
-                }
-            });
-        });
-    </script>
+    <script src="{{ url_for('static', filename='js/form_script.js') }}"></script>
 </body>
 
 </html>

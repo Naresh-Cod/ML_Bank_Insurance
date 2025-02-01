@@ -5,6 +5,17 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+option {
+    font-weight: normal;
+    display: block;
+    padding-block-start: 0px;
+    padding-block-end: 1px;
+    min-block-size: 1.2em;
+    padding-inline: 2px;
+    white-space: nowrap;
+    background-color: rgb(35 38 43);
+}
+
 .glass-container {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
