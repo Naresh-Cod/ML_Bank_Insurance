@@ -16,4 +16,4 @@ def model_score():
     return render_template('model_score.html')
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=True, host="0.0.0.0", port=1000)
