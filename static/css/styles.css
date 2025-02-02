@@ -1,15 +1,32 @@
 /* Reset and base styles */
 * {
-    margin: 4px;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #000;
+    background: black;
+    background-image: repeating-linear-gradient(90deg,
+            rgba(0, 255, 255, 0.1) 0px,
+            rgba(0, 255, 255, 0.1) 1px,
+            transparent 1px,
+            transparent 100px);
+    background-size: 200px 200px;
+    animation: cyberLines 5s linear infinite;
     color: #fff;
     line-height: 1.6;
+}
+
+@keyframes cyberLines {
+    from {
+        background-position: 0px 0px;
+    }
+
+    to {
+        background-position: 200px 200px;
+    }
 }
 
 /* Navigation styles */
@@ -40,6 +57,40 @@ nav {
     font-weight: 600;
     color: #fff;
     text-decoration: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    letter-spacing: 2px;
+    transition: letter-spacing 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    letter-spacing: 5px;
+}
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background-color: #007bff;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 .nav-links {
@@ -117,11 +168,32 @@ nav {
     align-items: center;
 }
 
+.hero-container1 {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+
+.hero-content h1,
+.hero-content p {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
 .hero-content h1 {
+    background: linear-gradient(90deg, #5f64ff, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 3.75rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 2.5rem;
+    animation-delay: 0.2s;
 }
 
 .hero-content p {
@@ -129,6 +201,39 @@ nav {
     font-size: 1.125rem;
     margin-bottom: 2rem;
     max-width: 500px;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
 }
 
 .hero-buttons {
@@ -138,6 +243,21 @@ nav {
     background: #222;
     padding: 10px 15px;
     border-radius: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .beta-release {

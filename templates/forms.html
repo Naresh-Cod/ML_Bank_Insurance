@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_forms.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/score.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animated-cube.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_responsive.css') }}">
 </head>
 
 <body>
@@ -25,17 +26,12 @@
                 <button class="btn btn-ghost">Sign up</button>
                 <button class="btn btn-secondary">Login</button>
             </div>
-            <button class="mobile-menu-btn" id="menuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-container">
+        <div class="hero-container1">
             <div class="glass-container">
                 <div class="form-header">
                     <h1>Insurance Data Form</h1>
@@ -118,14 +114,37 @@
                 </div>
 
             </div>
-            <div class="hero-image">
+            <!-- <div class="hero-image">
                 <div class="gradient-bg"></div>
                 <img src="{{ url_for('static', filename='img/3d-geometrical-shapes-background-b.png') }}"
                     alt="3D Geometric Illustration">
+            </div> -->
+            <div class="scene">
+                <div class="cube">
+                    <div class="face front">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face back">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face right">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face left">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face top">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face bottom">
+                        <div class="holographic-effect"></div>
+                    </div>
+                </div>
+                <div class="glow"></div>
             </div>
         </div>
     </section>
-
+    <script src="{{ url_for('static', filename='js/mobile-menu.js') }}"></script>
     <script src="{{ url_for('static', filename='js/form_script.js') }}"></script>
 </body>
 
