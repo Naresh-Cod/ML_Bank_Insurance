@@ -171,3 +171,41 @@
         /* Simplify animations for mobile */
     }
 }
+
+/* Default layout for larger screens */
+.beta-release {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-top: 20px;
+    position: relative;
+}
+
+.dot {
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+    .beta-release {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+        font-size: 14px;
+    }
+
+    .dot {
+        position: absolute;
+        top: -8px;
+        /* Adjusted to place above text */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+    }
+}
