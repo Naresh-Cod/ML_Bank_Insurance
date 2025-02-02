@@ -201,7 +201,7 @@
 
     .dot {
         position: absolute;
-        top: -8px;
+        top: -9px;
         /* Adjusted to place above text */
         left: 50%;
         transform: translateX(-50%);
