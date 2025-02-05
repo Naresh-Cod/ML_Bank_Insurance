@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
 
         let formData = new FormData(this);
+        this.style.display = 'none';
 
         fetch("/submit_data", {
             method: "POST",
@@ -25,5 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function newEntry() {
     document.getElementById("insuranceForm").reset();
+    document.getElementById("insuranceForm").style.display = "block";
     document.getElementById("resultsSection").style.display = "none";
+    document.getElementById("predictionScore").innerText = "—";
 }
