@@ -41,46 +41,50 @@
                     <div class="form-grid">
                         <div class="input-group">
                             <label for="age">Age</label>
-                            <input type="number" id="age" class="input-field" required>
+                            <input type="number" id="age" name="age" class="input-field" required>
                             <i class="fas fa-user"></i>
                             <span class="error">Please enter a valid age</span>
                         </div>
 
                         <div class="input-group">
                             <label for="sex">Sex</label>
-                            <select id="sex" class="input-field" required>
+                            <select id="sex" name="sex" class="input-field" required>
                                 <option value="">Select gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
                             <i class="fas fa-venus-mars"></i>
+                            <span class="error">Please select a gender</span>
                         </div>
 
                         <div class="input-group">
                             <label for="bmi">BMI</label>
-                            <input type="number" id="bmi" class="input-field" step="0.1" required>
+                            <input type="number" id="bmi" name="bmi" class="input-field" step="0.1" required>
                             <i class="fas fa-weight"></i>
+                            <span class="error">Please enter a valid BMI</span>
                         </div>
 
                         <div class="input-group">
                             <label for="children">Children</label>
-                            <input type="number" id="children" class="input-field" required>
+                            <input type="number" id="children" name="children" class="input-field" required>
                             <i class="fas fa-child"></i>
+                            <span class="error">Please enter the number of children</span>
                         </div>
 
                         <div class="input-group">
                             <label for="smoker">Smoker</label>
-                            <select id="smoker" class="input-field" required>
+                            <select id="smoker" name="smoker" class="input-field" required>
                                 <option value="">Select option</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
                             <i class="fas fa-smoking"></i>
+                            <span class="error">Please select an option</span>
                         </div>
 
                         <div class="input-group">
                             <label for="region">Region</label>
-                            <select id="region" class="input-field" required>
+                            <select id="region" name="region" class="input-field" required>
                                 <option value="">Select region</option>
                                 <option value="northeast">Northeast</option>
                                 <option value="northwest">Northwest</option>
@@ -88,8 +92,8 @@
                                 <option value="southwest">Southwest</option>
                             </select>
                             <i class="fas fa-map-marker-alt"></i>
+                            <span class="error">Please select a region</span>
                         </div>
-
                     </div>
 
                     <div class="submit-container">
@@ -107,7 +111,7 @@
                     <!-- Model Prediction Score -->
                     <div class="score-box">
                         <div class="score-title">Model Prediction Score</div>
-                        <div class="score-value" id="predictionScore">—</div>
+                        <div class="score-value" id="predictionScore">Waiting for Prediction...</div>
                     </div>
 
                     <button class="new-entry-btn" onclick="newEntry()">New Entry</button>
@@ -139,7 +143,8 @@
             </div>
         </div>
     </section>
-    <script src="{{ url_for('static', filename='js/form_script.js') }}"></script>
+    <!--<script src="{{ url_for('static', filename='js/form_script.js') }}"></script>-->
+    <script src="{{ url_for('static', filename='js/form_score.js') }}"></script>
 </body>
 
 </html>

@@ -14,10 +14,6 @@ def home():
 def forms():
     return render_template('forms.html')
 
-@app.route('/model_score')
-def model_score():
-    return render_template('model_score.html')
-
 @app.route('/predict',methods=['POST'])
 def predict():
     
@@ -32,7 +28,7 @@ def predict():
 
     input=pd.DataFrame(data,columns=['age', 'sex', 'bmi', 'children', 'smoker', 'region'])
     
-    with open("/Users/gauravjangid/PycharmProjects/insurance project/model/best_model.pkl","rb") as file:
+    with open("/home/kalikali/Documents/Projects/Bank_Insurance/model/best_model.pkl","rb") as file:
         pipeline=pickle.load(file)
         
     pred=pipeline.predict(input)
