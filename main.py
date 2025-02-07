@@ -3,6 +3,13 @@ import pandas as pd
 import numpy as np
 import pickle
 import os
+import mysql.connector
+
+conn= mysql.connector.connect(host = 'localhost' , 
+                               user = 'root' , 
+                               password = '' , 
+                               database = 'insurancedata')
+
 
 app = Flask(__name__)
 
@@ -38,6 +45,22 @@ def submit_data():
         # Prediction ke liye input prepare karein
         input_data = np.array([[age, sex, bmi, children, smoker, region]])
         prediction = model.predict(input_data)[0]
+        cursor=conn.cursor()
+        query = """
+            INSERT INTO insurance (age,sex,bmi,children,smoker,region,charges) 
+            VALUES (%s, %s, %s, %s, %s, %s,%s)
+        """
+        values = (age, sex, bmi, children, smoker, region,float(prediction))
+
+        try:
+            cursor.execute(query, values)
+            conn.commit()  
+            print("Data stored successfully in MySQL")
+        except mysql.connector.Error as err:
+            print("Error:", err)
+        finally:
+            cursor.close()
+    
 
         return jsonify({'prediction': f"${prediction:,.2f}"})
 
