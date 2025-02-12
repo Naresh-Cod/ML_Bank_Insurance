@@ -153,9 +153,9 @@ select.input-field {
     }
 }
 
-.glass-container {
+/* .glass-container {
     animation: float 6s ease-in-out infinite;
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 768px) {
