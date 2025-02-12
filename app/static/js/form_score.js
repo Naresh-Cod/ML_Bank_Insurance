@@ -5,9 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let formData = new FormData(this);
         this.style.display = 'none';
 
-        fetch("/submit_data", {
+        fetch("/api/submit_data", {  // _ Correct API URL
             method: "POST",
-            body: formData
+            body: formData,
+            headers: { "x-api-key": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef" }  // _ API Key added
         })
             .then(response => response.json())
             .then(data => {

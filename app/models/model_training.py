@@ -8,9 +8,11 @@ from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
 import pickle
+import os
 
 # Dataset
-data = pd.read_csv("insurance_processed.csv")
+data = pd.read_csv("app/models/insurance_processed.csv")
+# DATA_PATH = os.path.join(os.path.dirname(__file__), "insurance_processed.csv")
 
 df = pd.DataFrame(data)
 
@@ -37,7 +39,7 @@ pipeline = Pipeline(steps=[
 pipeline.fit(X_train, y_train)
 
 # Save the model to disk
-with open('insurance_model.pkl', 'wb') as model_file:
+with open('app/models/insurance_model.pkl', 'wb') as model_file:
     pickle.dump(pipeline, model_file)
 
 print("Model trained and saved successfully!")
