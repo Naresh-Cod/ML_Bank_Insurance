@@ -8,7 +8,7 @@ from app.utils.auth import check_api_key
 api_bp = Blueprint('api', __name__)
 
 # _ Load Model
-MODEL_PATH = os.path.join(os.getcwd(), "model", "/home/kalikali/Documents/Projects/Bank_Insurance/app/models/insurance_model.pkl")
+MODEL_PATH = os.path.join(os.getcwd(), "app", "models", "insurance_model.pkl")
 
 if not os.path.exists(MODEL_PATH):
     raise FileNotFoundError(f"⚠️ Model file not found at {MODEL_PATH}")
