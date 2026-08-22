@@ -1,4 +1,3 @@
-<img width="692" height="680" alt="Screenshot from 2026-08-22 09-59-58" src="https://github.com/user-attachments/assets/3550f18f-be18-42f5-abf1-dd809fdd3b8b" />
 # 🏦 A1 Bank - Insurance Data Analysis & Prediction
 
 A1 Bank's **Insurance Data Analysis & Prediction** platform helps users analyze insurance-related data and provides a **best score prediction** based on user inputs like age, BMI, smoking status, and more.
