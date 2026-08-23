@@ -1,6 +1,7 @@
 # 🏦 A1 Bank - Insurance Data Analysis & Prediction
 
 A1 Bank's **Insurance Data Analysis & Prediction** platform helps users analyze insurance-related data and provides a **best score prediction** based on user inputs like age, BMI, smoking status, and more.
+<img width="952" height="768" alt="codeicon_wab_icon" src="https://github.com/user-attachments/assets/f6dffd9c-1c46-45e9-81e2-3bf0e1deccf1" />
 
 ## 🚀 Features
 - 📝 **Insurance Data Form** – Users can input personal details such as age, BMI, smoking habits, and region.
